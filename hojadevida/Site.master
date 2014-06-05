@@ -1,0 +1,152 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+  
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="stylesheets/normalize.css">
+  <link rel="stylesheet" href="stylesheets/superslides.css">
+  <link rel="stylesheet" href="stylesheets/layout.css">
+    <link rel="stylesheet" href="stylesheets/Main.css">
+</head>
+<body>
+    <form runat="server" >
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="head">
+            <div class="head_pt1">
+                <a href="../../../Default.aspx"> 
+            <div class="logo">
+               <img src="img/logo.png" />
+            </div>
+            <div class="Empresa">
+                <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Names="New Garden" Font-Size="3em" ForeColor="#215E2B" Text="Hoja De "></asp:Label>
+                <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="New Garden" Font-Size="3em" ForeColor="#76B62B" Text="Vida"></asp:Label>
+            </div>
+                </a>
+            </div>
+            <asp:XmlDataSource ID="XmlDataSource1" runat="server" datafile="Menu.sitemap"></asp:XmlDataSource>
+            <div class="menu">
+                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" Font-Names="New Garden" Font-Size="20pt" ForeColor="#215E2B" OnMenuItemClick="Menu1_MenuItemClick">
+                <Items>
+                    <asp:MenuItem Text="Donar" Value="Donar" NavigateUrl="~/donar.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Canjear Codigo" Value="Canjear Codigo" NavigateUrl="~/canjear.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Conocenos" Value="Conocenos" NavigateUrl="~/conocenos.aspx"></asp:MenuItem>
+                    <asp:MenuItem Text="Ayuda" Value="Ayuda"></asp:MenuItem>
+                </Items>
+                    <StaticHoverStyle ForeColor="#B20000" />
+                    <StaticMenuItemStyle HorizontalPadding="20px" />
+                    <StaticMenuStyle HorizontalPadding="30px" />
+                    <StaticSelectedStyle Font-Size="20pt" ForeColor="#B20000" />
+            </asp:Menu>
+            </div>
+        </div>
+        <div class="barra"><img src="img/barra.png" /></div>
+        <div class="contenido40">
+               <p style="font-family: 'New Garden'; font-size:27pt; font-weight:bolder;color:#76B62B; padding:0; margin:0; top:0; width:100%;"><%: Page.Title %> </p>
+              <br />
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" >
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+               <!-- <p>Hoja de vida &copy; <%: DateTime.Now.Year %> - Develop by Avellana Produccion Creativa</p> -->
+            </footer>
+        
+            </div>
+    </form>
+    
+  <div class="loading-container">
+    <div class="pulse"></div>
+  </div>
+<div style="position:fixed; width:100%; height:100%;">
+  <div id="slides" style="position:fixed;">
+    <ul class="slides-container">
+      <li>
+        <img src="images/w1.jpg" alt="">
+       
+      </li>
+       <li>
+        <img src="images/w2.jpg" alt="">
+       
+      </li>
+         <li>
+        <img src="images/building.jpg" alt="">
+       
+      </li>
+      <li>
+        <img src="images/hill-climb.jpg" alt="">
+       
+      </li> 
+    </ul>
+    <nav class="slides-navigation">
+      <a href="#" class="next">
+        <i class="icon-chevron-right"></i>
+      </a>
+      <a href="#" class="prev">
+        <i class="icon-chevron-left"></i>
+      </a>
+    </nav>
+  </div>
+    </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="javascripts/jquery.easing.1.3.js"></script>
+  <script src="javascripts/jquery.animate-enhanced.min.js"></script>
+  <script src="javascripts/hammer.min.js"></script>
+  <script src="dist/jquery.superslides.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+      $(function () {
+          var $slides = $('#slides');
+
+          Hammer($slides[0]).on("swipeleft", function (e) {
+              $slides.data('superslides').animate('next');
+          });
+
+          Hammer($slides[0]).on("swiperight", function (e) {
+              $slides.data('superslides').animate('prev');
+          });
+
+          $slides.superslides({
+              hashchange: true,
+              play: 5000
+          });
+          $('#slides').on('mouseenter', function () {
+              $(this).superslides('start');
+              console.log('Stopped')
+          });
+          $('#slides').on('mouseleave', function () {
+              $(this).superslides('start');
+              console.log('Started')
+          });
+      });
+
+  </script>
+</body>
+</html>

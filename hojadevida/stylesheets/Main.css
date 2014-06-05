@@ -1,0 +1,58 @@
+﻿body {
+}
+.head {
+    background:url("../img/head.png");
+    position:fixed;
+    height:100px;
+    width:100%;
+    z-index:201;
+    display:block;
+    padding:0;
+}
+.logo {
+    left:40px;
+    position: absolute;
+    top:20px;
+    width:50px;
+}
+.Empresa {
+    margin-left:200px;
+    margin-top:25px;
+}
+.head_pt1 {
+    background:#FFFFFF;
+    width:35%;
+    padding-right:40px;
+    position:fixed;
+    height:100px;
+}
+.barra {
+    position:absolute;
+    z-index:191;
+    margin-right:60%;
+    text-align:right;
+    width:40%;
+}
+.contenido40 {
+    width:40%;
+    margin-left:40%;
+    background:url("../images/bgc.png");
+    height:auto;
+    border: solid 2px #FFFFFF;
+    top:30%;
+    z-index:192;
+    position:absolute;
+    padding:0;
+    color:#FFFFFF;
+    font-size:medium;
+    padding:20px;
+    margin-bottom:50px;
+    text-align:justify;
+}
+.menu {
+    margin-top:45px;
+    margin-left:35%;
+    padding-left:40px;
+    position:fixed;
+    height:100px;
+}
